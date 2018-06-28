@@ -39,10 +39,45 @@
 		</dependency>
 
 		<dependency>
+             <groupId>org.projectlombok</groupId>
+             <artifactId>lombok</artifactId>
+         </dependency>
+         
+        <!--配置servlet 
+        <dependency>  
+            <groupId>javax.servlet</groupId>  
+            <artifactId>javax.servlet-api</artifactId>  
+        </dependency>  --> 
+  
+        <!--配置jsp jstl的支持
+        <dependency>  
+            <groupId>javax.servlet</groupId>  
+            <artifactId>jstl</artifactId>  
+        </dependency>  -->  
+        
+         <!--对jsp的支持
+        <dependency>  
+            <groupId>org.apache.tomcat.embed</groupId>  
+            <artifactId>tomcat-embed-jasper</artifactId>  
+        </dependency>  -->  
+
+		<!-- thymeleaf模板插件 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+		<!--  <dependency>
 			<groupId>org.apache.derby</groupId>
 			<artifactId>derby</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

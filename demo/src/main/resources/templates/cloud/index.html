@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Cloud Files</title>
+</head>
+<body>
+  <h2>文件列表</h2>
+  <div>
+     <ul>
+       	 <li th:each="cloudFile:${cloudFiles}">
+             <span th:text="${cloudFile.id}"></span>-
+             <span th:text="${cloudFile.fileName}"></span>-
+             <span th:text="${cloudFile.uploadTime}"></span>-
+             <span th:text="${cloudFile.uploadUser}"></span>
+         </li>
+     </ul>
+   </div>
+</body>
+</html>
