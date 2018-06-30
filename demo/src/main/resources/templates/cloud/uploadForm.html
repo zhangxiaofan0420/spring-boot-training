@@ -1,0 +1,59 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<div th:if="${message}">
+		<h2 th:text="${message}"/>
+	</div>
+
+	<div>
+		<form method="POST" enctype="multipart/form-data" action="/cloudfiles/uploadfile">
+			<table>
+				<tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+				<tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+			</table>
+		</form>
+	</div>
+
+	<div>
+		<ul>
+			<li th:each="file : ${files}">
+				<a th:href="${file}" th:text="${file}" />
+			</li>
+		</ul>
+	</div>
+	
+  	<div>
+  		<table border="1">
+  			<thead>
+  				<th>ID</th>
+  				<th>StoreName</th>
+  				<th>RealName</th>
+  				<th>UpdTime</th>
+  				<th>UpdUsr</th>
+  				<th>Oper</th>
+  			</thead>
+  			<tbody>
+  				<tr th:each="cloudFile:${cloudfiles}">
+	  				 <td th:text="${cloudFile.id}"></td>
+		             <td th:text="${cloudFile.fileName}"></td>
+		             <td th:text="${cloudFile.realName}"></td>
+		             <td th:text="${#dates.format(cloudFile.uploadTime,'yyyy-MM-dd HH:mm:ss')}"></td>
+		             <td th:text="${cloudFile.uploadUser}"></td>
+		             <td><a th:href="@{'http://localhost:8080/cloudfiles/download/'+${cloudFile.id}}" target="_self">下载</a>&nbsp;&nbsp;
+		             <a th:href="@{'http://localhost:8080/cloudfiles/delete/'+${cloudFile.id}}" target="_self">删除</a></td>
+  				</tr>
+  			</tbody> 
+  		</table>
+<!--   		<ul>
+	       	 <li th:each="cloudFile:${cloudfiles}">
+	             <span th:text="${cloudFile.id}"></span>-
+	             <span th:text="${cloudFile.fileName}"></span>-
+	             <span th:text="${cloudFile.realName}"></span>-
+	             <span th:text="${#dates.format(cloudFile.uploadTime,'yyyy-MM-dd HH:mm:ss')}"></span>-
+	             <span th:text="${cloudFile.uploadUser}"></span>
+	         </li>
+     	</ul> -->
+   </div>
+
+</body>
+</html>
